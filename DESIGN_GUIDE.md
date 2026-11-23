@@ -80,9 +80,9 @@ If the LED stays off, first check connector polarity, U1 orientation, pin 4 RESE
 
 ## Manufacturing exports
 
-Gerber copper, solder-mask, silkscreen, and Edge.Cuts layers are in `manufacturing/`. The folder also contains separate plated and non-plated Excellon drill files and drill maps. The schematic PDF, BOM, pin-to-net CSV, and STEP model are alongside the KiCad files. The STEP file contains the board body, but KiCad 7’s STEP exporter cannot convert the library’s VRML-only component models, so it does not include component bodies. Open the native board in KiCad’s 3D Viewer to see the assembled component models and inspect their orientation and clearances visually before fabrication.
+Gerber copper, solder-mask, silkscreen, and Edge.Cuts layers are in `manufacturing/`. The folder also contains separate plated and non-plated Excellon drill files and drill maps. The schematic PDF, BOM, pin-to-net CSV, and STEP model are alongside the KiCad files. `3D_Render_KiCad_Raytracing.png` is a screenshot captured from KiCad 7’s native 3D Viewer with raytracing enabled and the board’s library component models visible. The STEP file contains the board body, but KiCad 7’s STEP exporter cannot convert the library’s VRML-only component models, so it does not include component bodies. Open the native board in KiCad’s 3D Viewer to inspect component orientation and clearances visually before fabrication.
 
-Do not send the Gerbers to a fab until the current board has a clean DRC report and the physical parts’ footprints have been matched to their manufacturers’ drawings. The design has not been electrically bench-tested.
+The assembled-board render requirement is now included. KiCad’s connectivity engine reported 0 unrouted connections after the GND zone fill, but this is not a full DRC result. Neither ERC nor DRC reports were produced in this environment, and the design has not been electrically bench-tested. Do not send the Gerbers to a fab until ERC and DRC have been run in desktop KiCad, any findings reviewed and corrected, and the physical parts’ footprints matched to their manufacturers’ drawings.
 
 ## References
 
