@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820">
+<defs>
+  <style>
+    .wire{stroke:#263547;stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .node{fill:#263547}
+    .part{stroke:#176b87;stroke-width:4;fill:#f4fbfd;stroke-linejoin:round}
+    .chip{stroke:#164e63;stroke-width:4;fill:#e6f4f7}
+    .lbl{font:700 20px Arial,sans-serif;fill:#1f2937}
+    .small{font:16px Arial,sans-serif;fill:#334155}
+    .pin{font:16px Arial,sans-serif;fill:#0f4c5c}
+    .title{font:700 30px Arial,sans-serif;fill:#102a43}
+    .sub{font:17px Arial,sans-serif;fill:#526579}
+    .red{fill:#b42318;stroke:#b42318}
+    .rail{font:700 19px Arial,sans-serif;fill:#116149}
+    .note{font:15px Arial,sans-serif;fill:#475569}
+  </style>
+</defs>
+<rect width="1280" height="820" fill="#ffffff"/>
+<text x="45" y="52" class="title">NE555 LED blinker — astable, 5 V</text>
+<text x="45" y="82" class="sub">Nominal timing: about 0.69 Hz (one flash cycle every 1.46 s)</text>
+<!-- supply and ground rails -->
+<path class="wire" d="M150 150 H1125"/>
+<text x="154" y="132" class="rail">+5 V</text>
+<path class="wire" d="M150 710 H1125"/>
+<text x="154" y="746" class="rail">GND</text>
+<!-- power connector -->
+<rect x="70" y="210" width="175" height="130" rx="10" class="part"/>
+<text x="157" y="238" text-anchor="middle" class="lbl">J1 · 5 V IN</text>
+<circle cx="155" cy="275" r="10" fill="#fff" stroke="#176b87" stroke-width="4"/>
+<circle cx="155" cy="315" r="10" fill="#fff" stroke="#176b87" stroke-width="4"/>
+<text x="177" y="281" class="small">1  +5 V</text>
+<text x="177" y="321" class="small">2  GND</text>
+<path class="wire" d="M155 275 V150 M155 315 V710"/>
+<!-- NE555 -->
+<rect x="475" y="220" width="300" height="330" rx="12" class="chip"/>
+<text x="625" y="265" text-anchor="middle" class="lbl">U1 · NE555P</text>
+<text x="625" y="292" text-anchor="middle" class="small">astable oscillator</text>
+<!-- pins on left -->
+<path class="wire" d="M475 325 H430 M475 375 H430 M475 440 H430 M475 495 H430"/>
+<text x="465" y="318" text-anchor="end" class="pin">2 TRIG</text>
+<text x="465" y="368" text-anchor="end" class="pin">4 RESET</text>
+<text x="465" y="433" text-anchor="end" class="pin">5 CTRL</text>
+<text x="465" y="488" text-anchor="end" class="pin">1 GND</text>
+<!-- pins on right -->
+<path class="wire" d="M775 300 H820 M775 350 H820 M775 420 H820 M775 485 H820"/>
+<text x="785" y="293" class="pin">8 VCC</text>
+<text x="785" y="343" class="pin">7 DISCH</text>
+<text x="785" y="413" class="pin">6 THRESH</text>
+<text x="785" y="478" class="pin">3 OUT</text>
+<!-- power connections -->
+<path class="wire" d="M820 300 V150 M430 375 V150"/>
+<circle cx="820" cy="150" r="6" class="node"/><circle cx="430" cy="150" r="6" class="node"/>
+<path class="wire" d="M430 495 V710"/>
+<!-- LED output branch -->
+<path class="wire" d="M820 485 H885"/>
+<path class="wire" d="M885 485 l12 -16 18 32 18 -32 18 32 18 -32 18 16 H1000"/>
+<text x="925" y="455" text-anchor="middle" class="small">R3 · 220 Ω</text>
+<!-- LED diode and light rays -->
+<path class="wire" d="M1000 485 H1030 M1075 485 H1125 V710"/>
+<path class="part" d="M1030 465 L1070 485 L1030 505 Z"/>
+<path class="part" d="M1075 463 V507"/>
+<path d="M1045 450 l18 -17 M1058 456 l18 -17" stroke="#b42318" stroke-width="3" fill="none"/>
+<text x="1053" y="540" text-anchor="middle" class="small">D1 · red LED</text>
+<text x="1014" y="474" text-anchor="end" class="note">A</text>
+<text x="1085" y="474" class="note">K</text>
+<circle cx="1125" cy="710" r="6" class="node"/>
+<!-- astable timing network: discharge node to timing node -->
+<path class="wire" d="M820 350 H900 V350"/>
+<circle cx="900" cy="350" r="6" class="node"/>
+<!-- R1 from +5V to discharge junction -->
+<path class="wire" d="M900 150 V205 M900 285 V350"/>
+<path class="wire" d="M900 205 l-16 8 32 16 -32 16 32 16 -16 8"/>
+<text x="940" y="245" class="small">R1 · 1 kΩ</text>
+<!-- R2 from discharge junction to timing node -->
+<path class="wire" d="M900 350 V390 M900 470 V580"/>
+<path class="wire" d="M900 390 l-16 8 32 16 -32 16 32 16 -16 8"/>
+<text x="940" y="435" class="small">R2 · 10 kΩ</text>
+<!-- timing node joins both pins and capacitor positive -->
+<path class="wire" d="M900 580 H430 V325 M820 420 V580 H1040"/>
+<circle cx="900" cy="580" r="6" class="node"/><circle cx="430" cy="580" r="6" class="node"/>
+<!-- C1 electrolytic -->
+<path class="wire" d="M1040 580 V620 M1040 675 V710"/>
+<path class="part" d="M1015 630 Q1040 620 1065 630 M1015 650 Q1040 640 1065 650"/>
+<text x="1080" y="630" class="small">C1 · 100 µF</text>
+<text x="1080" y="653" class="small">electrolytic</text>
+<text x="1065" y="622" class="lbl red">+</text>
+<text x="1040" y="605" text-anchor="middle" class="note">pin 1 (+) to timing node</text>
+<circle cx="1040" cy="710" r="6" class="node"/>
+<!-- control capacitor -->
+<path class="wire" d="M430 440 H330 V615"/>
+<path class="part" d="M305 625 H355 M305 650 H355"/>
+<path class="wire" d="M330 650 V710"/>
+<text x="275" y="635" text-anchor="end" class="small">C2 · 10 nF</text>
+<text x="275" y="657" text-anchor="end" class="small">CTRL bypass</text>
+<!-- supply decoupling capacitor -->
+<path class="wire" d="M385 150 V250"/>
+<path class="part" d="M360 255 H410 M360 280 H410"/>
+<path class="wire" d="M385 280 V710"/>
+<text x="350" y="270" text-anchor="end" class="small">C3 · 100 nF</text>
+<text x="350" y="292" text-anchor="end" class="small">supply bypass</text>
+<!-- annotated net node -->
+<text x="455" y="602" class="small">TIMING: pins 2 + 6, R2 end, C1 (+)</text>
+<text x="915" y="332" class="small">DISCH node</text>
+<text x="45" y="790" class="note">Note: LED anode (A) faces R3/output; cathode (K) returns to GND. Pin 4 RESET is tied high.</text>
+</svg>

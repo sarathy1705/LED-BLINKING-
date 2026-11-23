@@ -1,0 +1,26 @@
+%TF.GenerationSoftware,KiCad,Pcbnew,7.0.11+dfsg-1build4*%
+%TF.CreationDate,2026-11-23T16:14:45+00:00*%
+%TF.ProjectId,NE555_LED_Blinker,4e453535-355f-44c4-9544-5f426c696e6b,rev?*%
+%TF.SameCoordinates,Original*%
+%TF.FileFunction,Profile,NP*%
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW 7.0.11+dfsg-1build4) date 2026-11-23 16:14:45*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%TA.AperFunction,Profile*%
+%ADD10C,0.050000*%
+%TD*%
+G04 APERTURE END LIST*
+D10*
+X1000000Y-1000000D02*
+X59000000Y-1000000D01*
+X59000000Y-45000000D02*
+X1000000Y-45000000D01*
+X1000000Y-45000000D02*
+X1000000Y-1000000D01*
+X59000000Y-1000000D02*
+X59000000Y-45000000D01*
+M02*

@@ -1,0 +1,10 @@
+Reference,Value,Description,Footprint,Quantity
+U1,NE555P,"NE555 timer, PDIP-8",Package_DIP:DIP-8_W7.62mm,1
+R1,1k,"1 kOhm, 0.25 W or greater",Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal,1
+R2,10k,"10 kOhm, 0.25 W or greater",Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal,1
+R3,220,"220 Ohm, LED current limiting",Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal,1
+C1,100uF,"100 uF electrolytic, >=10 V, radial 5 mm; pin 1 positive",Capacitor_THT:CP_Radial_D5.0mm_P2.00mm,1
+C2,10nF,10 nF ceramic control-pin capacitor,Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm,1
+C3,100nF,100 nF ceramic decoupling capacitor,Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm,1
+D1,LED_RED,"Red LED, 5 mm",LED_THT:LED_D5.0mm,1
+J1,5V INPUT,"2-pin 5.00 mm terminal block; pin 1=+5V, pin 2=GND","TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal",1
